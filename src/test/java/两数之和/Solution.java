@@ -66,15 +66,16 @@ public class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         String first = "";
         String second = "";
-        do {
+
+        while (l1 != null){
             first = l1.val + first;
             l1 = l1.next;
-        }while (isHasNext(l1) );
+        }
 
-        do {
+        while (l2 != null){
             second = l2.val + second;
             l2 =l2.next;
-        }while (isHasNext(l2) );
+        }
 
         int target = Integer.parseInt(first) + Integer.parseInt(second);
 
@@ -116,8 +117,10 @@ public class Solution {
         ListNode secondB = new ListNode(6);
         ListNode secondC = new ListNode(4);
 
-        firstA.next = firstB.next = firstC;
-        secondA.next = secondB.next = secondC;
+        firstA.next = firstB;
+        firstB.next = firstC;
+        secondA.next = secondB;
+        secondB.next = secondC;
 
         dataA = firstA;
         dataB = secondA;
